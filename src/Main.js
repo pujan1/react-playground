@@ -1,16 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
+import useInput from "./useInput";
 
 const Main = () => {
-  const [name, setName] = useState("Pujan");
-
-  const handleNameChange = e => {
-    setName(e.target.value);
-  };
+  const name = useInput("Pujan");
+  const lastName = useInput("Parikh");
 
   return (
     <div>
-      <input value={name} onChange={handleNameChange} />
-      <span>{name}</span>
+      <input {...name} />
+      <input {...lastName} />
     </div>
   );
 };
