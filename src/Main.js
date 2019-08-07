@@ -1,15 +1,16 @@
 import React from "react";
-import useInput from "./useInput";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Games from "./components/Games";
+import Nav from "./components/Nav";
+import Streams from "./components/Streams";
 
 const Main = () => {
-  const name = useInput("Pujan");
-  const lastName = useInput("Parikh");
-
   return (
-    <div>
-      <input {...name} />
-      <input {...lastName} />
-    </div>
+    <Router>
+      <Nav />
+      <Route exact path="/" component={Games} />
+      <Route path="/streams" component={Streams} />
+    </Router>
   );
 };
 
